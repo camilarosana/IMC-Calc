@@ -102,15 +102,29 @@ body {
     outline: none;
 }
 
-#calculate {
-    border: 0;
-    font-size: 1.25rem;
-    font-weight: bold;
-    background-color: #f182a8;
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+button {
+    text-transform: uppercase;
+    padding: 1rem 1.5rem;
+    border: none;
+    opacity: 0.9;
     color: #000;
-    padding: 0.5rem 0;
+    font-weight: bold;
     border-radius: 3px;
     cursor: pointer;
+}
+
+#calculate {
+    background-color: #f182a8;
+}
+
+#clear {
+    background-color: #736e9e;
 }
 
 #result {
