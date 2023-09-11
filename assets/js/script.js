@@ -42,8 +42,6 @@ const data = [
 function cleanInput() {
     weight.value = '';
     height.value = '';
-    value.classList.add('normal');
-    desc.classList.add('normal');
 };
 function validDigit() {
     return text.replace(/[^0-9,]/g, '');
@@ -112,6 +110,8 @@ function showResult() {
 
 clearBtn.addEventListener('click', (e)=>{
     e.preventDefault();
+
+    document.getElementById('infos').classList.add('hidden');
 
     cleanInput();
 });
