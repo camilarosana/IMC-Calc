@@ -105,6 +105,7 @@ body {
 .buttons {
     display: flex;
     justify-content: space-between;
+    flex: 1;
     gap: 1rem;
 }
 
@@ -117,6 +118,11 @@ button {
     font-weight: bold;
     border-radius: 3px;
     cursor: pointer;
+    flex: 1;
+}
+
+button:hover {
+    opacity: 1;
 }
 
 #calculate {
@@ -148,7 +154,7 @@ button {
 }
 
 #description {
-    width: 15rem;
+    width: 12rem;
 }
 
 .hidden {
