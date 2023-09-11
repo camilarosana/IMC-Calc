@@ -42,7 +42,7 @@ const data = [
 function cleanInput() {
     weight.value = '';
     height.value = '';
-    value.classList.add('hidden');
+    value.classList.toggle('hidden');
 };
 function validDigit() {
     return text.replace(/[^0-9,]/g, '');
@@ -51,8 +51,6 @@ function calcImc(weightInput, heightInput) {
     const imc = (weightInput / (heightInput * heightInput)).toFixed(1);
     return imc;
 }
-
- // inicialização
 
  // eventos
 [weight, height].forEach((el)=>{
@@ -88,8 +86,6 @@ calculateBtn.addEventListener('click', (e)=>{
 function showResult() {
     document.getElementById('infos').classList.remove('hidden');
 };
-
-
 
 clearBtn.addEventListener('click', (e)=>{
     e.preventDefault();
