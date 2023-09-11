@@ -42,6 +42,8 @@ const data = [
 function cleanInput() {
     weight.value = '';
     height.value = '';
+    value.classList.add('normal');
+    desc.classList.add('normal');
 };
 function validDigit() {
     return text.replace(/[^0-9,]/g, '');
@@ -79,6 +81,28 @@ calculateBtn.addEventListener('click', (e)=>{
     value.innerText = imc;
     desc.innerText = info;
 
+      switch (info) {
+        case "Magreza":
+          value.classList.add('attention');
+          desc.classList.add('attention');
+          break;
+          case "Normal":
+            value.classList.add('normal');
+            desc.classList.add('normal');
+            break;
+            case "Sobrepeso":
+              value.classList.add('attention');
+              desc.classList.add('attention');
+              break;
+              case "Obesidade":
+                value.classList.add('attention');
+                desc.classList.add('attention');
+                break;
+                case "Obesidade grave":
+                  value.classList.add('attention');
+                  desc.classList.add('attention');
+                  break;
+      }
   
     showResult();
 });
