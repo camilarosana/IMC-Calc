@@ -31,14 +31,67 @@ const data = [
     },
   ]; 
 
- const form = document.querySelector('#form');
  const weight = document.querySelector('#weight');
  const height = document.querySelector('#height');
  const calculateBtn = document.querySelector('#calculate');
  const clearBtn = document.querySelector('#clear');
+ const form = document.querySelector('#form');
+ 
 
  // funções
+function cleanInput() {
+    weight.value = '';
+    height.value = '';
+};
+function validDigit() {
+    return text.replace(/[^0-9,]/g, '');
+};
+function calcImc(weightInput, heightInput) {
+    const imc = (weightInput / (heightInput * heightInput)).toFixed(1);
+    return imc;
+}
 
  // inicialização
 
  // eventos
+[weight, height].forEach((el)=>{
+    el.addEventListener('input',(e)=>{
+         const updateValue = validDigit(e.target.value);
+
+         e.target.value = updateValue;
+    });
+});
+calculateBtn.addEventListener('click', (e)=>{
+    e.preventDefault();
+
+    const weightInput = +weight.value.replace(',', '.');
+    const heightInput = +height.value.replace(',', '.');
+
+    const imc = calcImc(weightInput, heightInput);
+
+    let info = '';
+    const value = document.getElementById('value');
+    const desc = document.querySelector('#description span');
+
+    data.forEach((item)=>{
+        if (imc >= item.min && item.max) {
+            info = item.info;
+        }
+    });
+    value.innerText = imc;
+    desc.innerText = info;
+
+  
+    showResult();
+});
+function showResult() {
+    document.getElementById('infos').classList.remove('hidden');
+};
+
+
+
+clearBtn.addEventListener('click', (e)=>{
+    e.preventDefault();
+
+    cleanInput();
+});
