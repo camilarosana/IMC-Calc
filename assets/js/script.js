@@ -42,6 +42,7 @@ const data = [
 function cleanInput() {
     weight.value = '';
     height.value = '';
+    value.classList.add('hidden');
 };
 function validDigit() {
     return text.replace(/[^0-9,]/g, '');
